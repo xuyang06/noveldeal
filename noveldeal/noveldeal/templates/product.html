@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+</head>
+<body class="theme-light">
+<div id="grid"></div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#grid").shieldGrid({
+            dataSource: {
+                remote: {
+                    read: "/employees",
+                    modify: {
+                        create: {
+                            url: "/employees/EmployeeCreate",
+                            type: "post",
+                            data: function (edited) {
+                                var date = edited[0].data.BirthDate ? edited[0].data.BirthDate.toJSON() : new Date().toJSON();
+                                return {
+                                    Active: edited[0].data.Active,
+                                    Age: edited[0].data.Age,
+                                    BirthDate: date,
+                                    Name: edited[0].data.Name,
+                                    ID: edited[0].data.ID
+                                };
+                            }
+                        },
+                        update: {
+                            url: "/employees/EmployeeUpdate",
+                            type: "post",
+                            data: function (edited) {
+                                var date = edited[0].data.BirthDate ? edited[0].data.BirthDate.toJSON() : new Date().toJSON();
+                                return { 
+                                    Active: edited[0].data.Active,
+                                    BirthDate: date,
+                                    Age: edited[0].data.Age,
+                                    Name: edited[0].data.Name,
+                                    ID: edited[0].data.ID
+                                };
+                            }
+                        },
+                        remove: {
+                            url: "/employees/EmployeeRemove",
+                            type: "post",
+                            data: function (removed) {
+                                return { ID: removed[0].data.ID };
+                            }
+                        }
+                    }
+                },
+                schema: {
+                    fields: {
+                        ID: { path: "ID", type: Number },
+                        Name: { path: "Name", type: String },
+                        Age: { path: "Age", type: Number },
+                        BirthDate: { path: "BirthDate", type: Date },
+                        Active: { path: "Active", type: Boolean }
+                    }
+                }
+            },
+            paging: {
+                pageSize: 5
+            },
+            rowHover: false,
+            columns: [
+                { field: "Name", title: "Product Name"},
+                { field: "Age", title: "Age", width: "100px" },
+                { field: "BirthDate", title: "Birth Date", format: "{0:MM/dd/yyyy}" },
+                { field: "Active", title: "Active", width: "70px" },
+                {
+                    width: 150,
+                    title: " ",
+                    buttons: [
+                        { commandName: "edit", caption: "Edit" },
+                        { commandName: "delete", caption: "Delete" }
+                    ]
+                }
+            ],
+            editing: {
+                enabled: true,
+                type: "row",
+                confirmation: {
+                    "delete": {
+                        enabled: true,
+                        template: function (item) {
+                            return "Delete product with name '" + item.Name + "'?";
+                        }
+                    }
+                }
+            },
+            toolbar: [
+                {
+                    buttons: [
+                        { commandName: "insert", caption: "Add Product" }
+                    ],
+                    position: "top"
+                }
+            ]
+        });
+    });
+</script>
+</body>
+</html>

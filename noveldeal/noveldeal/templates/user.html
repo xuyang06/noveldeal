@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Novel Deal - Always Newest Deal!</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" "css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/grayscale.css') }}"  rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/login.css') }}"  rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}"  rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="http://www.prepbootstrap.com/Content/shieldui-lite/dist/css/light/all.min.css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="/">
+                    <i class="fa fa-play-circle"></i>  <span class="light">Novel</span> Deal
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="/"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/logout">Logout</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+	<!--<div class="col-lg-8 col-lg-offset-2">
+        -->
+		
+<div class="container">
+<div >
+		<h2>Hi, {{ user }}! </h2>
+		<p>How are you today?</p>
+        <p>Please tell us your interested product, the brand and category. </p>
+		<p>Once we find any deals related to your interest, we will deliver them to you!</p>
+		<p>Sounds interesting? Please try it.</p>
+		<p>If you have any suggestions about our product, please feel free to tell us. We really appreciate it!</p>
+    </div>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="text-center">Your Interest <span class="fa fa-edit pull-right bigicon"></span></h4>
+        </div>
+        <div class="panel-body text-center">
+            <div id="grid"></div>
+        </div>
+    </div>
+</div>
+
+<!--
+<div>
+This template uses the ShieldUI-Lite open source Suite.<br />
+It renders a responsive grid component, which has editing capabilities.<br />
+The sample uses the <a href="https://github.com/shieldui/shieldui-lite/\">ShieldUI-Lite</a> jquery Grid component for visualization of data.<br />
+To see more examples of this type of widget, please go <a href="https://demos.shieldui.com/web/grid-editing/editing-custom-editor\">here</a>.<br />
+The component supports many different types of editing, which can be used to further enhance this template. <br />
+Easy to ahieve is cell-based <a href="https://github.com/shieldui/shieldui-lite/\">editing</a>, where only single cell is edited at a time. <br />
+Also built in is <a href="https://demos.shieldui.com/web/grid-editing/inline-editing/\">inline-editing</a>, which is most often used. <br />
+Batch operations and updates are also <a href="https://demos.shieldui.com/web/grid-editing/batch-editing/\">supported</a> and allow multiple update operations. <br />
+For more advanced scenarios, you can refer to the <a href="https://demos.shieldui.com/web/grid-editing/editing-restful-web-service/\">Restful web services </a> samples. <br />
+For each editing operation, <a href="https://demos.shieldui.com/web/grid-editing/editing-validation/\">validation</a> can be used to safeguard against errors. <br />
+Additional editors can be employed as well, such as <a href="https://demos.shieldui.com/web/grid-editing/editing-external-form/\">external editors</a> to handle custom layout requirements. <br />
+</div>
+-->
+</div>
+
+<!-- you need to include the shieldui css and js assets in order for the grids to work -->
+
+
+
+
+	<!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Novel Deal 2015</p>
+        </div>
+    </footer>
+	
+	<!-- jQuery -->
+    <script src={{ url_for('static', filename='js/jquery.js') }}></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src={{ url_for('static', filename='js/bootstrap.min.js') }}></script>
+
+    <!-- Plugin JavaScript -->
+    <script src={{ url_for('static', filename='js/jquery.easing.min.js') }}></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <!-->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+	<!-->
+    <!-- Custom Theme JavaScript -->
+	<script src={{ url_for('static', filename='js/login.js') }}></script>
+    <script src={{ url_for('static', filename='js/grayscale.js') }}></script>
+    <script type="text/javascript" src="http://www.prepbootstrap.com/Content/shieldui-lite/dist/js/shieldui-lite-all.min.js"></script>
+
+<script type="text/javascript" src="http://www.prepbootstrap.com/Content/data/shortGridData.js"></script>
+
+<!--img src='http://www.prepbootstrap.com/Content/images/template/BootstrapEditableGrid/delete.png' -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#grid").shieldGrid({
+            dataSource: {
+                remote: {
+                    read: "/account",
+                    modify: {
+						create: {
+                            url: "/account/update/", 
+							//+ edited[0].data.brand,
+                            type: "put",
+                            data: function (edited) {
+                                //var date = edited[0].data.BirthDate ? edited[0].data.BirthDate.toJSON() : new Date().toJSON();
+                                return {
+                                    /*Active: edited[0].data.Active,
+                                    Age: edited[0].data.Age,
+                                    BirthDate: date,
+                                    Name: edited[0].data.Name,*/
+                                    id: edited[0].data.id,
+									brand: edited[0].data.brand,
+									category: edited[0].data.category
+                                };
+                            }
+                        },
+                        update: {
+                            url: "/account/update/", 
+							//+ edited[0].data.brand,
+                            type: "post",
+                            data: function (edited) {
+                                //var date = edited[0].data.BirthDate ? edited[0].data.BirthDate.toJSON() : new Date().toJSON();
+                               return { 
+                                    /*Active: edited[0].data.Active,
+                                    BirthDate: date,
+                                    Age: edited[0].data.Age,
+                                    Name: edited[0].data.Name,*/
+                                    id: edited[0].data.id,
+									brand: edited[0].data.brand,
+									category: edited[0].data.category
+                                };
+                            }
+                        },
+                        remove: {
+                            url: "/account/update/", 
+							//+ edited[0].data.brand,
+                            type: "delete",
+                            data: function (removed) {
+                                return { 
+									id: removed[0].data.id, 
+									brand: removed[0].data.brand,
+									category: removed[0].data.category
+								};
+                            }
+                        }
+                    }
+                },
+			/*{
+                data: gridData,*/
+                schema: {
+                    fields: {
+						brand: { path: "brand", type: String },
+                        id: { path: "id", type: Number },
+						category: { path: "category", type: String } 
+						/*age: { path: "age", type: Number },
+                        name: { path: "name", type: String },
+                        company: { path: "company", type: String },
+                        month: { path: "month", type: Date },
+                        */
+						//isActive: { path: "isActive", type: Boolean },
+                        //email: { path: "email", type: String },
+                        //transport: { path: "transport", type: String }
+                    }
+                }
+            },
+            sorting: {
+                multiple: true
+            },
+            rowHover: false,
+            columns: [
+				{ field: "brand", title: "Brand Name" },
+				{ field: "category", title: "Category Name", width: "240px", editor: myCustomEditor },
+				//{ field: "category", title: "Category Name", width: "240px"},
+                /*{ field: "name", title: "Person Name", width: "120px" },
+                { field: "age", title: "Age", width: "80px" },
+                { field: "company", title: "Company Name" },
+                { field: "month", title: "Date of Birth", format: "{0:MM/dd/yyyy}", width: "120px" },
+                */
+				//{ field: "isActive", title: "Active" },
+                //{ field: "email", title: "Email Address", width: "250px" },
+                //{ field: "transport", title: "Custom Editor", width: "120px", editor: myCustomEditor },
+                {
+                    width: "208px",
+                    title: "Edit",
+                    buttons: [
+						{ cls: "editButton", commandName: "edit", caption: "<span>Edit</span>" },
+                        { cls: "deleteButton", commandName: "delete", caption: "<span>Delete</span>" }
+                    ]
+                }
+            ],
+            editing: {
+                //enabled: false,
+                //event: "click",
+                type: "cell",
+				enabled: true,
+                mode: "popup",
+                confirmation: {
+                    "delete": {
+                        enabled: true,
+                        template: function (item) {
+                            return "Delete row with brand = " + item.brand
+                        }
+                    }
+                }
+            },
+			toolbar: [
+                {
+                    buttons: [
+                        { commandName: "insert", caption: "Add Product" }
+                    ],
+                    position: "top"
+                }
+            ],
+			paging: {
+                pageSize: 5,
+                pageLinksCount: 10
+            },
+            events:
+            {
+                getCustomEditorValue: function (e) {
+                    e.value = $("#dropdown").swidget().value();
+                    $("#dropdown").swidget().destroy();
+                }
+            }
+
+        });
+		
+		
+        
+		
+    });
+	function myCustomEditor(cell, item) {
+            $('<div id="dropdown"/>')
+                .appendTo(cell)
+                .shieldDropDown({
+                    dataSource: {
+                        data: ["shoes", "handbags", "clothes"]
+                    },
+                    value: !item["category"] ? null : item["category"].toString()
+                }).swidget().focus();
+        }
+</script>
+<style type="text/css">
+    .sui-button-cell {
+        text-align: center;
+    }
+</style>
+    
+
+</body>
+
+</html>
